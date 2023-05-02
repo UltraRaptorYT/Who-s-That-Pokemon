@@ -1,0 +1,61 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.black {
+  filter: brightness(0%)
+}
+
+.pokemon {
+  width: 96px;
+  aspect-ratio: 7/10;
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Marquee */
+.marquee {
+  --gap: 1rem;
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  gap: var(--gap);
+}
+
+.marquee__content {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-around;
+  gap: var(--gap);
+  min-width: 100%;
+  animation: scroll 20s linear infinite;
+}
+
+.marquee__content.reverse {
+  animation: scroll 20s linear infinite reverse;
+}
+
+.marquee__item {
+  aspect-ratio: 1;
+  width: 75px;
+}
+
+.marquee__item img {
+  width: 100%;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
+}
