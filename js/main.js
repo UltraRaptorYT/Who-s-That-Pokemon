@@ -1,22 +1,3 @@
-// for (let { id, name } of POKEDEX) {
-//     document.getElementById(
-//       "body"
-//     ).innerHTML += `<img src="./src/${id}.png" class="black pokemon"/>`;
-// }
-
-// const canvas = document.getElementById("pokemon");
-// const context = canvas.getContext("2d");
-// const img = new Image();
-// img.src = "./src/1.png";
-// img.onload = () => {
-//   context.drawImage(img, 0, 0, 96, 96);
-// };
-// document.getElementById(
-//   "body"
-// ).innerHTML += `<img src="./src/1.png" class="black pokemon"/>`;
-
-// document.getElementById("body").style.backgroundImage = "url(./src/1.png)"
-
 let marquee = document.createElement("div");
 marquee.classList.add("marquee");
 let marqueeClone = marquee.cloneNode(true);

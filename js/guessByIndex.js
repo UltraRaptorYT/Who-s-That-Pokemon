@@ -56,7 +56,6 @@ function next() {
 
   allPokemonElement.forEach((el) =>
     el.addEventListener("click", (e) => {
-      console.log(e.target);
       let style = window.getComputedStyle(e.target, false);
       let bi = style.backgroundImage.slice(4, -1).replace(/"/g, "");
       let dataCheck = bi.replace(".png", "").split("src/")[1];

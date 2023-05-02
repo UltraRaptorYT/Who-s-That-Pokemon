@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Who's That Pokémon</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./style/main.css" />
+    <link rel="stylesheet" href="./style/guessIndex.css" />
+    <script src="./js/pokemon.js"></script>
+    <script src="./js/main.js" defer></script>
+    <script src="./js/guessIndex.js" defer></script>
+    <script
+      src="https://kit.fontawesome.com/825a35d965.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="flex justify-end">
+      <h1 id="score" class="text-3xl font-bold"></h1>
+    </div>
+    <div class="flex justify-center flex-col justify-center items-center">
+      <div id="pokemon"></div>
+      <input
+        id="answer"
+        inputmode="none"
+        type="number"
+        class="border-b-2 border-black focus:outline-0 h-16 text-xl w-1/2 text-center font-bold"
+        autofocus
+      />
+    </div>
+
+    <div id="numPad">
+      <div
+        class="grid grid-cols-3 grid-rows-4 text-2xl py-3 px-2 justify-items-center gap-2 items-center"
+        id="callGrid"
+      >
+        <button
+          data-value="1"
+          class="w-16 h-16 p-2 bg-slate-500/50 hover:bg-slate-500 flex justify-center rounded-full relative items-center"
+        >
+          <p class="font-bold">1</p>
+          <i class="bi bi-voicemail absolute text-xs bottom-3"></i>
+        </button>
+        <button
+          data-value="2"
+          class="w-16 h-16 p-2 bg-slate-500/50 hover:bg-slate-500 flex justify-center rounded-full relative items-center"
+        >
+          <p class="font-bold">2</p>
+        </button>
+        <button
+          data-value="3"
+          class="w-16 h-16 p-2 bg-slate-500/50 hover:bg-slate-500 flex justify-center rounded-full relative items-center"
+        >
+          <p class="font-bold">3</p>
+        </button>
+        <button
+          data-value="4"
+          class="w-16 h-16 p-2 bg-slate-500/50 hover:bg-slate-500 flex justify-center rounded-full relative items-center"
+        >
+          <p class="font-bold">4</p>
+        </button>
+        <button
+          data-value="5"
+          class="w-16 h-16 p-2 bg-slate-500/50 hover:bg-slate-500 flex justify-center rounded-full relative items-center"
+        >
+          <p class="font-bold">5</p>
+        </button>
+        <button
+          data-value="6"
+          class="w-16 h-16 p-2 bg-slate-500/50 hover:bg-slate-500 flex justify-center rounded-full relative items-center"
+        >
+          <p class="font-bold">6</p>
+        </button>
+        <button
+          data-value="7"
+          class="w-16 h-16 p-2 bg-slate-500/50 hover:bg-slate-500 flex justify-center rounded-full relative items-center"
+        >
+          <p class="font-bold">7</p>
+        </button>
+        <button
+          data-value="8"
+          class="w-16 h-16 p-2 bg-slate-500/50 hover:bg-slate-500 flex justify-center rounded-full relative items-center"
+        >
+          <p class="font-bold">8</p>
+        </button>
+        <button
+          data-value="9"
+          class="w-16 h-16 p-2 bg-slate-500/50 hover:bg-slate-500 flex justify-center rounded-full relative items-center"
+        >
+          <p class="font-bold">9</p>
+        </button>
+        <button
+          id="backspace"
+          class="w-16 h-16 p-2 bg-slate-500/50 hover:bg-slate-500 flex justify-center items-center rounded-full relative"
+        >
+          <i class="fa-solid fa-delete-left"></i>
+        </button>
+        <button
+          data-value="0"
+          class="w-16 h-16 p-2 bg-slate-500/50 hover:bg-slate-500 flex justify-center rounded-full relative items-center"
+        >
+          <p class="font-bold">0</p>
+        </button>
+        <button
+          id="ok"
+          class="w-16 h-16 p-2 bg-slate-500/50 hover:bg-slate-500 flex justify-center items-center rounded-full relative"
+        >
+          <p class="font-bold">OK</p>
+        </button>
+      </div>
+    </div>
+    <a href="./index.html">guess By Index</a>
+  </body>
+</html>

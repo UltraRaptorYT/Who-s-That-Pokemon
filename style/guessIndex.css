@@ -1,0 +1,7 @@
+.pokemon {
+  width: 75%;
+  aspect-ratio: 1;
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
