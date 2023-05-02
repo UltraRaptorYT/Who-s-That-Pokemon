@@ -77,3 +77,9 @@ document.getElementById("answer").addEventListener("input", () => {
     .getElementById("answer")
     .value.replace(/[^\d]/g, "");
 });
+
+if (window.innerWidth <= 576) {
+  document.getElementById("answer").readOnly = true;
+} else {
+  document.getElementById("answer").readOnly = false;
+}
