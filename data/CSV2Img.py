@@ -25,7 +25,7 @@ pokeDex = [1, 978]
 invalidDex = [29,32,83,122,439,669,772,865]
 
 # for dex in pokeDex:
-for dex in np.unique(df["No"])[865:]:
+for dex in np.unique(df["No"]):
     if dex in invalidDex:
       continue
     name = df[df["Branch_Code"] == str(
