@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import re
 from bs4 import BeautifulSoup
 import requests
 import warnings
@@ -19,19 +20,30 @@ df = pd.read_csv("./pokemon.csv")
 # Gen 9 scarlet-violet
 # Home home
 
-pokeDex = [772,785,786,787,788]
+pokeDex = [1, 978]
+
+invalidDex = [29,32,83,122,439,669,772,865]
 
 # for dex in pokeDex:
-for dex in np.unique(df["No"]):
+for dex in np.unique(df["No"])[865:]:
+    if dex in invalidDex:
+      continue
     name = df[df["Branch_Code"] == str(
         dex) + "_0"]["Original_Name"].values[0]
-    print(name)
-    searchName = name.lower().replace(' ', '-').replace(".","").replace("\'", "").replace(":", "")
-    page = requests.get(
-        f"https://img.pokemondb.net/sprites/home/normal/{searchName}.png", verify=False)
+    print(f"{name} - {dex}")
+    # searchName = name.lower().replace(' ', '-').replace(".","").replace("\'", "").replace(":", "")
+    searchName = name.replace(' ', '_')
+    # page = requests.get(
+    #     f"https://img.pokemondb.net/sprites/home/normal/{searchName}.png", verify=False)
+    page = requests.get(f"https://bulbapedia.bulbagarden.net/wiki/{searchName}_(Pokémon)", verify=False)
     if page.status_code == 404:
       print(name)
       continue
+    soup = BeautifulSoup(page.text, "html.parser")
+    aTag = soup.find("a", {"href": re.compile(rf"/wiki/File:{dex:04d}{searchName}")})
+    imgTag = aTag.find("img")
+    imgURL = imgTag["srcset"].split("//")[2].replace(" 2x", "")
+    imgPage = requests.get(f"https://{imgURL}", verify=False)
     with open(f"../src/{dex}.png", 'wb') as f:
-      f.write(page.content)
+      f.write(imgPage.content)
 

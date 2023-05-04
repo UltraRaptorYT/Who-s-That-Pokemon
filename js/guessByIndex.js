@@ -20,13 +20,17 @@ function next() {
   for (let i = 0; i < 9; i++) {
     do {
       let padArr = padNum.split("");
-      let updateIndex = generateNumber(0, padArr.length - 1);
-      if (Math.random() < 0.85) {
+      // Old Method
+      // let updateIndex = generateNumber(0, padArr.length - 1);
+      // Kenneth Method
+      let updateIndex = generateNumber(0, padArr.length - 2);
+      if (Math.random() < 0.90) {
         padArr[updateIndex] = generateNumber(0, 9);
         var genNum = parseInt(padArr.join(""));
       } else {
         var genNum = parseInt(padArr.join(""));
-        let diff = Math.random() < 0.5 ? -1 : 1;
+        // let diff = Math.random() < 0.5 ? -1 : 1;
+        let diff = generateNumber(0, 6) - 3;
         genNum -= diff;
       }
     } while (

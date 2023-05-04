@@ -1,5 +1,6 @@
 let total = 0;
 let score = 0;
+let pokeHist = [];
 
 function startGame() {
   total = 0;
@@ -11,7 +12,9 @@ function next() {
   document.getElementById("answer").focus();
   document.getElementById("answer").value = "";
   document.getElementById("score").innerText = `Score: ${score}/${total}`;
-  let pokeNum = generateNumber(1, POKEDEX.length);
+  do {
+    var pokeNum = generateNumber(1, POKEDEX.length);
+  } while (pokeHist.includes(pokeNum));
   let pokemonElement = document.getElementById("pokemon");
   pokemonElement.classList.add("pokemon");
   pokemonElement.style.backgroundImage = `url("./src/${pokeNum}.png")`;
@@ -39,6 +42,10 @@ function checkAnswer() {
   let dataCheck = bi.replace(".png", "").split("src/")[1];
   if (document.getElementById("answer").value == dataCheck) {
     score++;
+    pokeHist.push(parseInt(dataCheck));
+    if (pokeHist.length >= POKEDEX.length) {
+      pokeHist = []
+    }
   }
   total++;
   next();
