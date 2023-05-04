@@ -12,7 +12,7 @@
 
 .pokemon {
   width: 96px;
-  aspect-ratio: 9/10;
+  aspect-ratio: 5/6;
   background-position: top center;
   background-size: contain;
   background-repeat: no-repeat;
