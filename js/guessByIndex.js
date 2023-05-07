@@ -27,6 +27,9 @@ let pokeNum = generateNumber(1,100);
       // let updateIndex = generateNumber(0, padArr.length - 2);
       // padArr[updateIndex] = generateNumber(0, 9);
       var genNum = pokeNum + 100 * (i+1);
+      if (genNum > POKEDEX.length) {
+            genNum = generateNumber(1, POKEDEX.length);
+      }
       // if (Math.random() < 0.90) {
       //   padArr[updateIndex] = generateNumber(0, 9);
       //   var genNum = parseInt(padArr.join(""));
