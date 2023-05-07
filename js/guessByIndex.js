@@ -44,9 +44,11 @@ let pokeNum = generateNumber(1,100);
     pokeArr.push(genNum);
   }
   shuffleArr(pokeArr);
-pokeNum = pokeArr[generateNumber(0, 9);
+pokeNum = pokeArr[generateNumber(0, 9)];
+
  document.getElementById("pokeDex").innerText = `Pokemon #${pokeNum}`;
  document.getElementById("pokeFlex").textContent = "";
+
   for (let pokeDex of pokeArr) {
     let pokemonElement = document.createElement("div");
     pokemonElement.classList.add("pokemon");
