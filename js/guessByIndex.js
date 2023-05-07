@@ -1,9 +1,9 @@
-let total = 0;
-let score = 0;
+let total = parseInt(sessionStorage.getItem("total")) ?? 0;
+let score = parseInt(sessionStorage.getItem("score")) ?? 0;
 
 function startGame() {
-  total = 0;
-  score = 0;
+  total = parseInt(sessionStorage.getItem("total")) ?? 0;
+  score = parseInt(sessionStorage.getItem("score")) ?? 0;
   next();
 }
 
@@ -75,8 +75,10 @@ pokeNum = pokeArr[generateNumber(0, 9)];
       let dataCheck = bi.replace(".png", "").split("src/")[1];
       if (dataCheck == pokeNum) {
         score++;
+        sessionStorage.setItem("score", score);
       }
       total++;
+      sessionStorage.setItem("total", total);
       next();
     })
   );
