@@ -1,9 +1,9 @@
-let total = sessionStorage.getItem("total") ? parseInt(sessionStorage.getItem("total")) ? 0;
-let score = sessionStorage.getItem("score") ?  parseInt(sessionStorage.getItem("score")) ? 0;
+let total = sessionStorage.getItem("total") ? parseInt(sessionStorage.getItem("total")) : 0;
+let score = sessionStorage.getItem("score") ?  parseInt(sessionStorage.getItem("score")) : 0;
 
 function startGame() {
-  let total = sessionStorage.getItem("total") ? parseInt(sessionStorage.getItem("total")) ? 0;
-let score = sessionStorage.getItem("score") ?  parseInt(sessionStorage.getItem("score")) ? 0;
+  let total = sessionStorage.getItem("total") ? parseInt(sessionStorage.getItem("total")) : 0;
+let score = sessionStorage.getItem("score") ?  parseInt(sessionStorage.getItem("score")) : 0;
   next();
 }
 
