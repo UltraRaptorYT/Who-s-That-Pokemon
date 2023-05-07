@@ -8,10 +8,11 @@ function startGame() {
 }
 
 function next() {
-  let pokeNum = generateNumber(1, POKEDEX.length);
+  //let pokeNum = generateNumber(1, POKEDEX.length);
+let pokeNum = generateNumber(1,100);
   // let pokeNum = 100;
 
-  document.getElementById("pokeDex").innerText = `Pokemon #${pokeNum}`;
+  // document.getElementById("pokeDex").innerText = `Pokemon #${pokeNum}`;
   document.getElementById("score").innerText = `Score: ${score}/${total}`;
 
   let padNum = pokeNum.toString().padStart(4, "0");
@@ -23,9 +24,9 @@ function next() {
       // Old Method
       // let updateIndex = generateNumber(0, padArr.length - 1);
       // Kenneth Method
-      let updateIndex = generateNumber(0, padArr.length - 2);
-      padArr[updateIndex] = generateNumber(0, 9);
-      var genNum = parseInt(padArr.join(""));
+      // let updateIndex = generateNumber(0, padArr.length - 2);
+      // padArr[updateIndex] = generateNumber(0, 9);
+      var genNum = pokeNum + 100 * (i+1);
       // if (Math.random() < 0.90) {
       //   padArr[updateIndex] = generateNumber(0, 9);
       //   var genNum = parseInt(padArr.join(""));
@@ -43,7 +44,9 @@ function next() {
     pokeArr.push(genNum);
   }
   shuffleArr(pokeArr);
-  document.getElementById("pokeFlex").textContent = "";
+pokeNum = pokeArr[generateNumber(0, 9);
+ document.getElementById("pokeDex").innerText = `Pokemon #${pokeNum}`;
+ document.getElementById("pokeFlex").textContent = "";
   for (let pokeDex of pokeArr) {
     let pokemonElement = document.createElement("div");
     pokemonElement.classList.add("pokemon");
