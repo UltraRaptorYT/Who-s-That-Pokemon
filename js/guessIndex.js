@@ -32,6 +32,29 @@ document.getElementById("answer").addEventListener("keypress", (e) => {
   }
 });
 
+document.getElementById("answer").addEventListener("input", (e) => {
+  answerChecker();
+});
+
+function answerChecker() {
+  document.getElementById("answer").focus();
+  let style = window.getComputedStyle(
+    document.getElementById("pokemon"),
+    false
+  );
+  let bi = style.backgroundImage.slice(4, -1).replace(/"/g, "");
+  let dataCheck = bi.replace(".png", "").split("src/")[1];
+  if (document.getElementById("answer").value == dataCheck) {
+    score++;
+    pokeHist.push(parseInt(dataCheck));
+    if (pokeHist.length >= POKEDEX.length) {
+      pokeHist = [];
+    }
+    total++;
+    next();
+  }
+}
+
 function checkAnswer() {
   document.getElementById("answer").focus();
   let style = window.getComputedStyle(
@@ -44,7 +67,7 @@ function checkAnswer() {
     score++;
     pokeHist.push(parseInt(dataCheck));
     if (pokeHist.length >= POKEDEX.length) {
-      pokeHist = []
+      pokeHist = [];
     }
   }
   total++;
@@ -69,6 +92,7 @@ for (let button of callGridArr) {
     }
     document.getElementById("answer").focus();
     document.getElementById("answer").value += buttonHTML.dataset.value;
+    answerChecker();
   });
 }
 
