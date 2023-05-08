@@ -18,7 +18,7 @@ function startGame() {
 function next() {
   //let pokeNum = generateNumber(1, POKEDEX.length);
   let pokeNum = generateNumber(1, 100);
-  // let pokeNum = 100;
+  // let pokeNum = 1;
 
   // document.getElementById("pokeDex").innerText = `Pokemon #${pokeNum}`;
   document.getElementById("score").innerText = `Score: ${score}/${total}`;
@@ -34,7 +34,11 @@ function next() {
       // Kenneth Method
       // let updateIndex = generateNumber(0, padArr.length - 2);
       // padArr[updateIndex] = generateNumber(0, 9);
-      var genNum = pokeNum + 100 * (i + 1);
+      if (pokeNum <= POKEDEX.length % 100) {
+        var genNum = pokeNum + 100 * generateNumber(1, 10);
+      } else {
+        var genNum = pokeNum + 100 * (i + 1);
+      }
       if (genNum > POKEDEX.length) {
         genNum = generateNumber(1, POKEDEX.length);
       }
