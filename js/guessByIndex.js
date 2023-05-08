@@ -1,15 +1,23 @@
-let total = sessionStorage.getItem("total") ? parseInt(sessionStorage.getItem("total")) : 0;
-let score = sessionStorage.getItem("score") ?  parseInt(sessionStorage.getItem("score")) : 0;
+let total = sessionStorage.getItem("total")
+  ? parseInt(sessionStorage.getItem("total"))
+  : 0;
+let score = sessionStorage.getItem("score")
+  ? parseInt(sessionStorage.getItem("score"))
+  : 0;
 
 function startGame() {
-  let total = sessionStorage.getItem("total") ? parseInt(sessionStorage.getItem("total")) : 0;
-let score = sessionStorage.getItem("score") ?  parseInt(sessionStorage.getItem("score")) : 0;
+  total = sessionStorage.getItem("total")
+    ? parseInt(sessionStorage.getItem("total"))
+    : 0;
+  score = sessionStorage.getItem("score")
+    ? parseInt(sessionStorage.getItem("score"))
+    : 0;
   next();
 }
 
 function next() {
   //let pokeNum = generateNumber(1, POKEDEX.length);
-let pokeNum = generateNumber(1,100);
+  let pokeNum = generateNumber(1, 100);
   // let pokeNum = 100;
 
   // document.getElementById("pokeDex").innerText = `Pokemon #${pokeNum}`;
@@ -26,9 +34,9 @@ let pokeNum = generateNumber(1,100);
       // Kenneth Method
       // let updateIndex = generateNumber(0, padArr.length - 2);
       // padArr[updateIndex] = generateNumber(0, 9);
-      var genNum = pokeNum + 100 * (i+1);
+      var genNum = pokeNum + 100 * (i + 1);
       if (genNum > POKEDEX.length) {
-            genNum = generateNumber(1, POKEDEX.length);
+        genNum = generateNumber(1, POKEDEX.length);
       }
       // if (Math.random() < 0.90) {
       //   padArr[updateIndex] = generateNumber(0, 9);
@@ -47,10 +55,10 @@ let pokeNum = generateNumber(1,100);
     pokeArr.push(genNum);
   }
   shuffleArr(pokeArr);
-pokeNum = pokeArr[generateNumber(0, 9)];
+  pokeNum = pokeArr[generateNumber(0, 9)];
 
- document.getElementById("pokeDex").innerText = `Pokemon #${pokeNum}`;
- document.getElementById("pokeFlex").textContent = "";
+  document.getElementById("pokeDex").innerText = `Pokemon #${pokeNum}`;
+  document.getElementById("pokeFlex").textContent = "";
 
   for (let pokeDex of pokeArr) {
     let pokemonElement = document.createElement("div");
@@ -85,3 +93,11 @@ pokeNum = pokeArr[generateNumber(0, 9)];
 }
 
 startGame();
+
+function resetScore() {
+  sessionStorage.removeItem("score");
+  sessionStorage.removeItem("total");
+  score = 0;
+  total = 0;
+  startGame();
+}

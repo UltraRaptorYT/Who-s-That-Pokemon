@@ -1,10 +1,18 @@
-let total = 0;
-let score = 0;
+let total = sessionStorage.getItem("total2")
+  ? parseInt(sessionStorage.getItem("total2"))
+  : 0;
+let score = sessionStorage.getItem("score2")
+  ? parseInt(sessionStorage.getItem("score2"))
+  : 0;
 let pokeHist = [];
 
 function startGame() {
-  total = 0;
-  score = 0;
+  total = sessionStorage.getItem("total2")
+    ? parseInt(sessionStorage.getItem("total2"))
+    : 0;
+  score = sessionStorage.getItem("score2")
+    ? parseInt(sessionStorage.getItem("score2"))
+    : 0;
   next();
 }
 
@@ -46,11 +54,13 @@ function answerChecker() {
   let dataCheck = bi.replace(".png", "").split("src/")[1];
   if (document.getElementById("answer").value == dataCheck) {
     score++;
+    sessionStorage.setItem("score2", score);
     pokeHist.push(parseInt(dataCheck));
     if (pokeHist.length >= POKEDEX.length) {
       pokeHist = [];
     }
     total++;
+    sessionStorage.setItem("total2", total);
     next();
   }
 }
@@ -65,12 +75,14 @@ function checkAnswer() {
   let dataCheck = bi.replace(".png", "").split("src/")[1];
   if (document.getElementById("answer").value == dataCheck) {
     score++;
+    sessionStorage.setItem("score2", score);
     pokeHist.push(parseInt(dataCheck));
     if (pokeHist.length >= POKEDEX.length) {
       pokeHist = [];
     }
   }
   total++;
+  sessionStorage.setItem("total2", total);
   next();
 }
 
@@ -113,4 +125,12 @@ if (window.innerWidth <= 576) {
   document.getElementById("answer").readOnly = true;
 } else {
   document.getElementById("answer").readOnly = false;
+}
+
+function resetScore() {
+  sessionStorage.removeItem("score2");
+  sessionStorage.removeItem("total2");
+  score = 0;
+  total = 0;
+  startGame();
 }
