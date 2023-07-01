@@ -5,26 +5,195 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Who's That Pokémon</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.6/flowbite.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./style/index.css" />
     <link rel="stylesheet" href="./style/main.css" />
     <link rel="stylesheet" href="./style/guessByIndex.css" />
     <script src="./js/pokemon.js"></script>
+    <script src="./js/index.js" defer></script>
     <script src="./js/main.js" defer></script>
-    <script src="./js/guessByIndex.js" defer></script>
+    <!-- <script src="./js/guessByIndex.js" defer></script> -->
   </head>
   <body>
-    <div>
-      
+    <div class="grid relative max-w-4xl mx-auto">
+      <div
+        class="flex flex-col py-3 justify-start items-center sm:gap-2 mx-auto smallWidth min-h-[100dvh]"
+      >
+        <div class="flex justify-between sm:justify-center items-center w-full">
+          <button
+            data-drawer-target="settings"
+            data-drawer-toggle="settings"
+            aria-controls="settings"
+            type="button"
+            class="aspect-square w-[44px] border focus:outline-none focus:ring-4 font-medium rounded-lg text-xl bg-gray-800 text-white border-gray-600 hover:bg-gray-700 hover:border-gray-600 focus:ring-gray-700 sm:hidden"
+          >
+            <span class="sr-only">Open sidebar</span>
+            <i class="bi bi-gear-fill"></i>
+          </button>
+          <h1 class="font-bold text-xl text-center">Who's That Pokemon?</h1>
+          <button
+            data-drawer-target="stats"
+            data-drawer-toggle="stats"
+            data-drawer-placement="right"
+            aria-controls="stats"
+            type="button"
+            class="aspect-square w-[44px] border focus:outline-none focus:ring-4 font-medium rounded-lg text-xl bg-gray-800 text-white hover:bg-gray-700 hover:border-gray-600 focus:ring-gray-700 sm:hidden"
+          >
+            <span class="sr-only">Open sidebar</span>
+            <i class="bi bi-bar-chart-line-fill"></i>
+          </button>
+        </div>
+        <h2 class="font-bold text-lg text-center" id="gameMode">Game Mode</h2>
+        <div id="main">hello</div>
+      </div>
+
+      <aside
+        id="settings"
+        class="absolute top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
+        aria-label="Sidebar"
+      >
+        <div
+          class="h-full px-3 py-4 overflow-y-auto bg-gray-800 sm:bg-transparent"
+        >
+          <ul
+            class="flex flex-col items-center gap-3 font-medium text-white sm:text-black"
+          >
+            <h2 class="text-center font-bold text-xl sm:hidden">Settings</h2>
+            <h3 class="text-center font-bold text-lg">Generation</h3>
+            <ul
+              class="roundedDiv w-48 text-sm font-medium border rounded-lg bg-gray-700 text-white"
+              id="generation"
+            ></ul>
+            <h3 class="text-center font-bold text-lg">Game Mode</h3>
+            <ul
+              class="roundedDiv w-48 text-sm font-medium border rounded-lg bg-gray-700 text-white"
+              id="gameModeSelector"
+            >
+              <li>
+                <input
+                  type="radio"
+                  id="gm1"
+                  value=""
+                  class="hidden peer"
+                  required=""
+                  name="gameMode"
+                  checked
+                />
+                <label
+                  for="gm1"
+                  class="bi relative inline-flex items-center justify-between w-full p-2 text-gray-500 bg-white border-2 border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
+                >
+                  <div class="w-full text-base font-semibold text-center">
+                    GM1
+                  </div>
+                </label>
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  id="gen${i}"
+                  value=""
+                  class="hidden peer"
+                  required=""
+                  name="gameMode"
+                  checked
+                />
+                <label
+                  for="gen${i}"
+                  class="bi relative inline-flex items-center justify-between w-full p-2 text-gray-500 bg-white border-2 border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
+                >
+                  <div class="w-full text-base font-semibold text-center">
+                    Gen ${i}
+                  </div>
+                </label>
+              </li>
+              <li>
+                <a
+                  href="./main.html"
+                  class="inline-flex items-center justify-between w-full p-2 text-gray-500 bg-white border-3 border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
+                >
+                  <div class="w-full text-base font-semibold text-center">
+                    Guess By Index
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="./pokemon.html"
+                  class="bi relative inline-flex items-center justify-between w-full p-2 text-gray-500 bg-white border-2 border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
+                >
+                  <div class="w-full text-base font-semibold text-center">
+                    Guess From Index
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </ul>
+          <!-- <ul class="pt-4 mt-4 space-y-2 font-medium border-t border-gray-700">
+            <li>hi</li>
+          </ul> -->
+        </div>
+      </aside>
+
+      <aside
+        id="stats"
+        class="fixed md:absolute top-0 right-0 z-40 w-64 h-screen transition-transform translate-x-full sm:translate-x-0"
+        aria-label="Sidebar"
+      >
+        <div
+          class="h-full px-3 py-4 overflow-y-auto bg-gray-800 sm:bg-transparent"
+        >
+          <ul
+            class="flex flex-col items-center gap-3 font-medium text-white sm:text-black"
+          >
+            <h2 class="text-center font-bold text-xl sm:hidden">Stats</h2>
+            <h3 class="text-center font-bold text-lg">Streak</h3>
+            <div
+              class="flex flex-col gap-1 items-center sm:bg-gray-800 bg-slate-700 rounded-lg p-2 w-3/4 text-white"
+            >
+              <h4 class="text-center font-bold text-base">Current</h4>
+              <h3 class="text-2xl font-bold" id="currentStreak">0</h3>
+            </div>
+            <div
+              class="flex flex-col gap-1 items-center sm:bg-gray-800 bg-slate-700 rounded-lg p-2 w-3/4 text-white"
+            >
+              <h4 class="text-center font-bold text-base">Best</h4>
+              <h3 class="text-xl font-bold" id="bestStreak">0</h3>
+            </div>
+            <h3 class="text-center font-bold text-lg">Time</h3>
+            <div
+              class="flex flex-col gap-1 items-center sm:bg-gray-800 bg-slate-700 rounded-lg p-2 w-3/4 text-white"
+            >
+              <h4 class="text-center font-bold text-base">Previous</h4>
+              <h3 class="text-2xl font-bold" id="previousTime">-</h3>
+            </div>
+            <div
+              class="flex flex-col gap-1 items-center sm:bg-gray-800 bg-slate-700 rounded-lg p-2 w-3/4 text-white"
+            >
+              <h4 class="text-center font-bold text-base">Best</h4>
+              <h5 class="text-center font-bold text-sm">
+                (<span id="bestTimePokemon">Meowth</span>)
+              </h5>
+              <h3 class="text-2xl font-bold" id="bestTime">0</h3>
+            </div>
+            <div
+              class="flex flex-col gap-1 items-center sm:bg-gray-800 bg-slate-700 rounded-lg p-2 w-3/4 text-white"
+            >
+              <h4 class="text-center font-bold text-base">Average</h4>
+              <h3 class="text-2xl font-bold" id="averageTime">-</h3>
+            </div>
+          </ul>
+        </div>
+      </aside>
     </div>
-    <div class="flex justify-between">
-      <h1 id="pokeDex" class="text-3xl font-bold"></h1>
-      <h1 id="score" class="text-3xl font-bold"></h1>
-    </div>
-    <div id="pokeFlex" class="grid grid-flow-row-dense grid-cols-2 gap-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 justify-center items-center place-items-center"></div>
-    <div id="main"></div>
-    <div class="flex gap-5 flex-col">
-      <a href="./pokemon.html">guessIndex</a>
-      <button onclick="resetScore()">Clear Score</button>
-    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.6/flowbite.min.js"></script>
   </body>
 </html>
