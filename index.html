@@ -20,10 +20,11 @@
     <script src="./js/pokemon.js"></script>
     <script src="./js/index.js" defer></script>
     <script src="./js/main.js" defer></script>
-    <!-- <script src="./js/guessByIndex.js" defer></script> -->
+    <script src="./js/guessFromIndex.js" defer></script>
+    <script src="./js/game.js" defer></script>
   </head>
   <body>
-    <div class="grid relative max-w-4xl mx-auto">
+    <div class="grid relative max-w-4xl mx-auto" id="body">
       <div
         class="flex flex-col py-3 justify-start items-center sm:gap-2 mx-auto smallWidth min-h-[100dvh]"
       >
@@ -38,7 +39,12 @@
             <span class="sr-only">Open sidebar</span>
             <i class="bi bi-gear-fill"></i>
           </button>
-          <h1 class="font-bold text-xl text-center">Who's That Pokemon?</h1>
+          <div class="flex flex-col">
+            <h1 class="font-bold text-xl text-center">Who's That Pokemon?</h1>
+            <h2 class="font-bold text-base text-center" id="gameMode">
+              Game Mode
+            </h2>
+          </div>
           <button
             data-drawer-target="stats"
             data-drawer-toggle="stats"
@@ -51,8 +57,22 @@
             <i class="bi bi-bar-chart-line-fill"></i>
           </button>
         </div>
-        <h2 class="font-bold text-lg text-center" id="gameMode">Game Mode</h2>
-        <div id="main">hello</div>
+        <div id="main" class="flex flex-col w-full px-3">
+          <div class="flex justify-between items-center md:mb-2">
+            <h1 id="pokeDex" class="text-2xl font-bold"></h1>
+            <button
+              type="button"
+              class="text-sm focus:outline-none focus:ring-4 font-medium rounded-lg px-5 py-2.5 bg-gray-800 text-white hover:bg-gray-700 hover:border-gray-600 focus:ring-gray-700"
+              onclick="nextGuessFromIndex()"
+            >
+              SKIP
+            </button>
+          </div>
+          <div
+            id="pokeFlex"
+            class="grid grid-flow-row-dense grid-cols-2 gap-3 lg:grid-cols-3 justify-center items-center place-items-center"
+          ></div>
+        </div>
       </div>
 
       <aside
@@ -80,47 +100,48 @@
               <li>
                 <input
                   type="radio"
-                  id="gm1"
-                  value=""
+                  id="guessFromIndex"
+                  value="guessFromIndex"
                   class="hidden peer"
                   required=""
                   name="gameMode"
                   checked
+                  onchange="updateGameMode()"
                 />
                 <label
-                  for="gm1"
-                  class="bi relative inline-flex items-center justify-between w-full p-2 text-gray-500 bg-white border-2 border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
+                  for="guessFromIndex"
+                  class="bi relative inline-flex items-center justify-between w-full p-2 border-2 cursor-pointer hover:text-gray-300 border-gray-700 peer-checked:text-gray-300 text-gray-400 bg-gray-800 hover:bg-gray-700"
                 >
-                  <div class="w-full text-base font-semibold text-center">
-                    GM1
+                  <div class="w-full text-base font-bold text-center">
+                    Guess From Index
                   </div>
                 </label>
               </li>
               <li>
                 <input
                   type="radio"
-                  id="gen${i}"
-                  value=""
+                  id="guessingIndex"
+                  value="guessingIndex"
                   class="hidden peer"
                   required=""
                   name="gameMode"
-                  checked
+                  onchange="updateGameMode()"
                 />
                 <label
-                  for="gen${i}"
-                  class="bi relative inline-flex items-center justify-between w-full p-2 text-gray-500 bg-white border-2 border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
+                  for="guessingIndex"
+                  class="bi relative inline-flex items-center justify-between w-full p-2 border-2 cursor-pointer hover:text-gray-300 border-gray-700 peer-checked:text-gray-300 text-gray-400 bg-gray-800 hover:bg-gray-700"
                 >
-                  <div class="w-full text-base font-semibold text-center">
-                    Gen ${i}
+                  <div class="w-full text-base font-bold text-center">
+                    Guessing Index
                   </div>
                 </label>
               </li>
-              <li>
+              <!-- <li>
                 <a
                   href="./main.html"
-                  class="inline-flex items-center justify-between w-full p-2 text-gray-500 bg-white border-3 border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
+                  class="inline-flex items-center justify-between w-full p-2 bg-white border-3 cursor-pointer hover:text-gray-300 border-gray-700 peer-checked:text-gray-300 text-gray-400 bg-gray-800 hover:bg-gray-700"
                 >
-                  <div class="w-full text-base font-semibold text-center">
+                  <div class="w-full text-base font-bold text-center">
                     Guess By Index
                   </div>
                 </a>
@@ -128,13 +149,13 @@
               <li>
                 <a
                   href="./pokemon.html"
-                  class="bi relative inline-flex items-center justify-between w-full p-2 text-gray-500 bg-white border-2 border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
+                  class="bi relative inline-flex items-center justify-between w-full p-2 border-2 cursor-pointer hover:text-gray-300 border-gray-700 peer-checked:text-gray-300 text-gray-400 bg-gray-800 hover:bg-gray-700"
                 >
-                  <div class="w-full text-base font-semibold text-center">
+                  <div class="w-full text-base font-bold text-center">
                     Guess From Index
                   </div>
                 </a>
-              </li>
+              </li> -->
             </ul>
           </ul>
           <!-- <ul class="pt-4 mt-4 space-y-2 font-medium border-t border-gray-700">
@@ -155,6 +176,12 @@
             class="flex flex-col items-center gap-3 font-medium text-white sm:text-black"
           >
             <h2 class="text-center font-bold text-xl sm:hidden">Stats</h2>
+            <h3 class="text-center font-bold text-lg">Score</h3>
+            <div
+              class="flex flex-col gap-1 items-center sm:bg-gray-800 bg-slate-700 rounded-lg p-2 w-3/4 text-white"
+            >
+              <h3 class="text-2xl font-bold" id="score">0 / 0</h3>
+            </div>
             <h3 class="text-center font-bold text-lg">Streak</h3>
             <div
               class="flex flex-col gap-1 items-center sm:bg-gray-800 bg-slate-700 rounded-lg p-2 w-3/4 text-white"
@@ -180,7 +207,7 @@
             >
               <h4 class="text-center font-bold text-base">Best</h4>
               <h5 class="text-center font-bold text-sm">
-                (<span id="bestTimePokemon">Meowth</span>)
+                ( <span id="bestTimePokemon">-</span> )
               </h5>
               <h3 class="text-2xl font-bold" id="bestTime">0</h3>
             </div>
@@ -190,6 +217,13 @@
               <h4 class="text-center font-bold text-base">Average</h4>
               <h3 class="text-2xl font-bold" id="averageTime">-</h3>
             </div>
+            <button
+              type="button"
+              class="text-sm focus:outline-none focus:ring-4 font-medium rounded-lg px-5 py-2.5 sm:bg-gray-800 bg-slate-700 text-white sm:hover:bg-gray-700 sm:hover:border-gray-600 hover:bg-slate-700 hover:border-slate-600 focus:ring-gray-700"
+              onclick="removeStorage()"
+            >
+              TRASH
+            </button>
           </ul>
         </div>
       </aside>

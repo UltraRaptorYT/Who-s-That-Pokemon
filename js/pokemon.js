@@ -1,3 +1,15 @@
+const GENERATION = [
+  { gen: 1, count: 151, total: 151 },
+  { gen: 2, count: 100, total: 251 },
+  { gen: 3, count: 135, total: 386 },
+  { gen: 4, count: 107, total: 493 },
+  { gen: 5, count: 156, total: 649 },
+  { gen: 6, count: 72, total: 721 },
+  { gen: 7, count: 88, total: 809 },
+  { gen: 8, count: 96, total: 905 },
+  { gen: 9, count: 111, total: 1010 },
+];
+
 const POKEDEX = [
   { id: 1, name: "Bulbasaur", gen: 1 },
   { id: 2, name: "Ivysaur", gen: 1 },
