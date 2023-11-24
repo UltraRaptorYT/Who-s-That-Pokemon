@@ -37,8 +37,8 @@
 // marqueeClone.appendChild(marqueeContentClone.cloneNode(true));
 // document.getElementById("main").appendChild(marqueeClone);
 
-function generateNumber(min = 0, max) {
-  return Math.floor(Math.random() * max + min);
+function generateNumber(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 function shuffleArr(arr) {
