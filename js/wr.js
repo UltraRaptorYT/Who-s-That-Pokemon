@@ -138,7 +138,7 @@ let duration = 1;
 
 let sessionPokemon = [];
 function startGame(min, max) {
-  let seconds = 55;
+  let seconds = 0;
   let minutes = 0;
   let currentTime = new Date();
   let stopTime = new Date(currentTime);
