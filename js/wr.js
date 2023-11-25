@@ -164,7 +164,7 @@ function startGame(min, max) {
     seconds += 1;
     if (seconds >= 60) {
       seconds = 0;
-      minutes = 1;
+      minutes += 1;
     }
     timerDiv.innerText = `${String(minutes).padStart(2, "0")}:${String(
       seconds
