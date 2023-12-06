@@ -199,11 +199,11 @@ function generatePokemon(min, max) {
     console.log(pokeNum);
   } while (sessionPokemon.includes(pokeNum));
   sessionPokemon.push(pokeNum);
-  if (max <= 151) {
-    imgContainer.src = `./src/pokemon/${pokeNum}.png`;
-  } else {
-    imgContainer.src = `./src/${pokeNum}.png`;
-  }
-  // imgContainer.src = `./src/pokemon/${pokeNum}.png`;
+  // if (max <= 151) {
+  //   imgContainer.src = `./src/pokemon/${pokeNum}.png`;
+  // } else {
+  //   imgContainer.src = `./src/${pokeNum}.png`;
+  // }
+  imgContainer.src = `./src/${pokeNum}.png`;
   return imgContainer;
 }
