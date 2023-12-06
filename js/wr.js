@@ -142,7 +142,7 @@ function startGame(min, max) {
   let minutes = 0;
   let currentTime = new Date();
   let stopTime = new Date(currentTime);
-  sessionPokemon = []
+  sessionPokemon = [];
   stopTime.setMinutes(stopTime.getMinutes() + duration);
   console.log(currentTime - stopTime);
 
@@ -199,6 +199,11 @@ function generatePokemon(min, max) {
     console.log(pokeNum);
   } while (sessionPokemon.includes(pokeNum));
   sessionPokemon.push(pokeNum);
-  imgContainer.src = `./src/${pokeNum}.png`;
+  if (max <= 151) {
+    imgContainer.src = `./src/pokemon/${pokeNum}.png`;
+  } else {
+    imgContainer.src = `./src/${pokeNum}.png`;
+  }
+  // imgContainer.src = `./src/pokemon/${pokeNum}.png`;
   return imgContainer;
 }
