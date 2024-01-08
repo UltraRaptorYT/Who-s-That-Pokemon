@@ -139,7 +139,7 @@ let duration = 1;
 let sessionPokemon = [];
 function startGame(min, max) {
   let seconds = 0;
-  let minutes = 0;
+  let minutes = 1;
   let currentTime = new Date();
   let stopTime = new Date(currentTime);
   sessionPokemon = [];
@@ -160,11 +160,28 @@ function startGame(min, max) {
   timerDiv.innerText = `${String(minutes).padStart(2, "0")}:${String(
     seconds
   ).padStart(2, "0")}`;
+  // setInterval(() => {
+  //   seconds += 1;
+  //   if (seconds >= 60) {
+  //     seconds = 0;
+  //     minutes += 1;
+  //   }
+  //   timerDiv.innerText = `${String(minutes).padStart(2, "0")}:${String(
+  //     seconds
+  //   ).padStart(2, "0")}`;
+  // }, 1000);
   setInterval(() => {
-    seconds += 1;
-    if (seconds >= 60) {
-      seconds = 0;
-      minutes += 1;
+    seconds -= 1;
+    if (minutes <= 0 && seconds <= 0) {
+      alert(
+        `Time's up! You scored ${parseInt(
+          counterDiv.innerText
+        )} pokemon by index correctly!`
+      );
+    }
+    if (seconds < 0) {
+      seconds = 59;
+      minutes -= 1;
     }
     timerDiv.innerText = `${String(minutes).padStart(2, "0")}:${String(
       seconds
@@ -196,7 +213,6 @@ function generatePokemon(min, max) {
   let imgContainer = document.createElement("img");
   do {
     var pokeNum = generateNumber(parseInt(min), parseInt(max));
-    console.log(pokeNum);
   } while (sessionPokemon.includes(pokeNum));
   sessionPokemon.push(pokeNum);
   // if (max <= 151) {
