@@ -7,7 +7,7 @@ const GENERATION = [
   { gen: 6, count: 72, total: 721 },
   { gen: 7, count: 88, total: 809 },
   { gen: 8, count: 96, total: 905 },
-  { gen: 9, count: 111, total: 1010 },
+  { gen: 9, count: 111, total: 1025 },
 ];
 
 const POKEDEX = [
