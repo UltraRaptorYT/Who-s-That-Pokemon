@@ -1202,3 +1202,23 @@
 1008,1008_0,Miraidon,Miraidon,9,3.5,240,Electric,Dragon,Hadron Engine,,,Blue,0,0,100,50,Undiscovered,,3,335,1250000,Legendary,,,100,85,100,135,115,135,670,0,0,0,3,0,0
 1009,1009_0,Walking Wake,Walking Wake,9,3.5,280,Water,Dragon,Protosynthesis,,,Blue,0,0,100,50,Undiscovered,,5,295,1250000,Semi-Legendary,,,99,83,91,125,83,109,590,0,0,0,3,0,0
 1010,1010_0,Iron Leaves,Iron Leaves,9,1.5,125,Grass,Psychic,Quark Drive,,,Green,0,0,100,50,Undiscovered,,5,295,1250000,Semi-Legendary,,,90,130,88,70,108,104,590,0,3,0,0,0,0
+1011,1011_0,Dipplin,Dipplin,9,0.4,4.4,Grass,Dragon,Supersweet Syrup,Gluttony,Sticky Hold,Green,50,50,0,20,Grass,Dragon,45,170,600000,Ordinary,,,80,80,110,95,80,40,485,0,0,2,0,0,0
+1012,1012_0,Poltchageist,Poltchageist,9,0.1,1.1,Grass,Ghost,Hospitality,,Heatproof,Green,0,0,100,20,Mineral,Amorphous,120,62,1000000,Ordinary,,,40,45,45,74,54,50,308,0,0,0,1,0,0
+1013,1013_0,Sinistcha,Sinistcha,9,0.2,2.2,Grass,Ghost,Hospitality,,Heatproof,Green,0,0,100,20,Mineral,Amorphous,60,178,1000000,Ordinary,,,71,60,106,121,80,70,508,0,0,0,2,0,0
+1014,1014_0,Okidogi,Okidogi,9,1.8,92.2,Poison,Fighting,Toxic Chain,,Guard Dog,Black,100,0,0,120,Undiscovered,,3,278,1250000,Legendary,,,88,128,115,58,86,80,555,0,3,0,0,0,0
+1015,1015_0,Munkidori,Munkidori,9,1,12.2,Poison,Psychic,Toxic Chain,,Frisk,Black,100,0,0,120,Undiscovered,,3,278,1250000,Legendary,,,88,75,66,130,90,106,555,0,0,0,3,0,0
+1016,1016_0,Fezandipiti,Fezandipiti,9,1.4,30.1,Poison,Fairy,Toxic Chain,,Technician,Black,100,0,0,120,Undiscovered,,3,278,1250000,Legendary,,,88,91,82,70,125,99,555,0,0,0,0,3,0
+1017,1017_0,Ogerpon,Ogerpon Teal Mask,9,1.2,39.8,Grass,,Defiant,,,Green,0,100,0,10,Undiscovered,,5,275,1250000,Legendary,,,80,120,84,60,96,110,550,0,3,0,0,0,0
+1017,1017_1,Ogerpon,Ogerpon Wellspring Mask,9,1.2,39.8,Grass,Water,Water Absorb,,,Green,0,100,0,10,Undiscovered,,5,275,1250000,Legendary,,,80,120,84,60,96,110,550,0,3,0,0,0,0
+1017,1017_2,Ogerpon,Ogerpon Hearthflame Mask,9,1.2,39.8,Grass,Fire,Mold Breaker,,,Green,0,100,0,10,Undiscovered,,5,275,1250000,Legendary,,,80,120,84,60,96,110,550,0,3,0,0,0,0
+1017,1017_3,Ogerpon,Ogerpon Cornerstone Mask,9,1.2,39.8,Grass,Rock,Sturdy,,,Green,0,100,0,10,Undiscovered,,5,275,1250000,Legendary,,,80,120,84,60,96,110,550,0,3,0,0,0,0
+1018,1018_0,Archaludon,Archaludon,9,2,60,Steel,Dragon,Stamina,Sturdy,Stalwart,White,50,50,0,30,Mineral,Dragon,10,300,1000000,Ordinary,,,90,105,130,125,65,85,600,0,0,3,0,0,0
+1019,1019_0,Hydrapple,Hydrapple,9,1.8,93,Grass,Dragon,Supersweet Syrup,Regenerator,Sticky Hold,Green,50,50,0,20,Grass,Dragon,10,270,600000,Ordinary,,,106,80,110,120,80,44,540,0,0,0,3,0,0
+1020,1020_0,Gouging Fire,Gouging Fire,9,3.5,590,Fire,Dragon,Protosynthesis,,,Brown,0,0,100,50,Undiscovered,,10,295,1250000,Semi-Legendary,,,105,115,121,65,93,91,590,0,0,3,0,0,0
+1021,1021_0,Raging Bolt,Raging Bolt,9,5.2,480,Electric,Dragon,Protosynthesis,,,Yellow,0,0,100,50,Undiscovered,,10,295,1250000,Semi-Legendary,,,125,73,91,137,89,75,590,0,0,0,3,0,0
+1022,1022_0,Iron Boulder,Iron Boulder,9,1.5,162.5,Rock,Psychic,Quark Drive,,,Gray,0,0,100,50,Undiscovered,,10,295,1250000,Semi-Legendary,,,90,120,80,68,108,124,590,0,0,0,0,0,3
+1023,1023_0,Iron Crown,Iron Crown,9,1.6,156,Steel,Psychic,Quark Drive,,,Blue,0,0,100,50,Undiscovered,,10,295,1250000,Semi-Legendary,,,90,72,100,122,108,98,590,0,0,0,3,0,0
+1024,1024_0,Terapagos,Terapagos,9,0.2,6.5,Normal,,Tera Shift,,,Blue,50,50,0,5,Undiscovered,,255,90,1250000,Legendary,,,90,65,85,65,85,60,450,0,0,1,0,0,0
+1024,1024_1,Terapagos,Terapagos Terastal,9,0.3,16,Normal,,Tera Shell,,,Blue,50,50,0,5,Undiscovered,,255,90,1250000,Legendary,,,95,95,110,105,110,85,600,0,0,2,0,2,0
+1024,1024_2,Terapagos,Terapagos Stellar,9,1.7,77,Normal,,Teraform Zero,,,Blue,50,50,0,5,Undiscovered,,255,90,1250000,Legendary,,,160,105,110,130,110,85,700,3,0,0,0,0,0
+1025,1025_0,Pecharunt,Pecharunt,9,0.3,0.3,Poison,Ghost,Poison Puppeteer,,,Purple,0,0,100,20,Undiscovered,,3,300,1250000,Legendary,,,88,88,160,88,88,88,600,0,0,3,0,0,0
