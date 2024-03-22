@@ -122,7 +122,8 @@ function nextGuessFromIndex(prevTime = null) {
       pokeArr.push(genNum);
     }
     shuffleArr(pokeArr);
-    pokeNum = pokeArr[generateNumber(0, 9)];
+    console.log(pokeArr)
+    pokeNum = pokeArr[generateNumber(0, pokeArr.length - 1)];
     var inGen = false;
     let genArr = document.querySelectorAll(`input[name="generation"]`);
     for (let [idx, gen] of Object.entries(genArr)) {
